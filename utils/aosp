@@ -11,7 +11,7 @@ set -e
 AOSP_IMAGE=${AOSP_IMAGE:-kylemanna/aosp}
 AOSP_VOL=${AOSP_VOL:-/vol0}
 AOSP_ARGS=${AOSP_ARGS:---rm -it}
-AOSP_VOL_AOSP=${AOSP_VOL_AOSP:-$AOSP_VOL/aosp}
+AOSP_VOL_AOSP=${AOSP_VOL_AOSP:-$AOSP_VOL/src-tree}
 AOSP_VOL_CCACHE=${AOSP_VOL_CCACHE:-$AOSP_VOL/ccache}
 
 if [ ! -d "$AOSP_VOL_AOSP" -o ! -d "$AOSP_VOL_CCACHE" ]; then
