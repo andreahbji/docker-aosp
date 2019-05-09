@@ -19,6 +19,9 @@ WORKDIR /
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
     dpkg-reconfigure -p critical dash
 
+# Replace apt source to aliyun mirror
+ADD sources.list /etc/apt/
+
 # Keep the dependency list as short as reasonable
 RUN apt-get update && \
     apt-get install -y bc bison bsdmainutils build-essential curl \
