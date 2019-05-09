@@ -1,26 +1,31 @@
 #
 # Minimum Docker image to build Android AOSP
+# Copyright (C) 2014-2019 Kyle Manna <kyle@kylemanna.com>
+# Copyright (C) 2019 Andrea Ji <andrea.hb.ji@outlook.com>
 #
 FROM ubuntu:16.04
 
-MAINTAINER Kyle Manna <kyle@kylemanna.com>
+LABEL maintainer="andrea.hb.ji@outlook.com"
 
 # /bin/sh points to Dash by default, reconfigure to use bash until Android
 # build becomes POSIX compliant
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
     dpkg-reconfigure -p critical dash
 
+# Replace apt source with aliyun mirror
+ADD sources.list /etc/apt/
+
 # Keep the dependency list as short as reasonable
 RUN apt-get update && \
-    apt-get install -y bc bison bsdmainutils build-essential curl \
-        flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev \
-        lib32z1-dev libesd0-dev libncurses5-dev \
-        libsdl1.2-dev libwxgtk3.0-dev libxml2-utils lzop sudo \
+    apt-get install -y bc bison bsdmainutils build-essential ccache curl \
+        flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev \
+        lib32readline-dev lib32z1-dev liblz4-tool libesd0-dev libncurses5-dev \
+        libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop sudo \
         openjdk-8-jdk \
-        pngcrush schedtool xsltproc zip zlib1g-dev graphviz && \
+        pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev graphviz && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD https://commondatastorage.googleapis.com/git-repo-downloads/repo /usr/local/bin/
+ADD https://mirrors.tuna.tsinghua.edu.cn/git/git-repo /usr/local/bin/repo
 RUN chmod 755 /usr/local/bin/*
 
 # Install latest version of JDK
