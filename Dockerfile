@@ -3,6 +3,13 @@
 # Copyright (C) 2014-2019 Kyle Manna <kyle@kylemanna.com>
 # Copyright (C) 2019 Andrea Ji <andrea.hb.ji@outlook.com>
 #
+# ChangeLog:
+# (8/May/2019) Andrea Ji <andrea.hb.ji@outlook.com>
+#  - The webupd8team apt source is invalid , replace with local installation.
+#  - Replace default apt source to aliyun mirror.
+#  - Replace google repo url to tsinghua mirror.
+#  - Install genisoimage to support MSM android.
+
 FROM ubuntu:14.04
 
 MAINTAINER Andrea Ji <andrea.hb.ji@outlook.com>
