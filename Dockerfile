@@ -3,6 +3,13 @@
 # Copyright (C) 2014-2019 Kyle Manna <kyle@kylemanna.com>
 # Copyright (C) 2019 Andrea Ji <andrea.hb.ji@outlook.com>
 #
+# ChangeLog:
+# (8/May/2019) Andrea Ji <andrea.hb.ji@outlook.com>
+#  - The webupd8team apt source is invalid , replace with local installation.
+#  - Replace default apt source with aliyun mirror.
+#  - Replace google repo url with tsinghua mirror.
+#  - Install genisoimage to support MSM android.
+#
 
 FROM ubuntu:14.04
 
@@ -22,7 +29,7 @@ WORKDIR /
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
     dpkg-reconfigure -p critical dash
 
-# Replace apt source to aliyun mirror
+# Replace apt source with aliyun mirror
 ADD sources.list /etc/apt/
 
 # Keep the dependency list as short as reasonable
