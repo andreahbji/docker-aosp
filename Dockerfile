@@ -1,9 +1,12 @@
 #
 # Minimum Docker image to build Android AOSP
+# Copyright (C) 2014-2019 Kyle Manna <kyle@kylemanna.com>
+# Copyright (C) 2019 Andrea Ji <andrea.hb.ji@outlook.com>
 #
+
 FROM ubuntu:14.04
 
-MAINTAINER Kyle Manna <kyle@kylemanna.com>
+LABEL maintainer="andrea.hb.ji@outlook.com"
 
 # Setup for Oracle Java 6
 ADD http://85-207-0-21.static.bluetone.cz/java/1.6.0_45/jdk-6u45-linux-x64.bin /usr/local/
