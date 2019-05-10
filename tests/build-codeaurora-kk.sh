@@ -23,7 +23,7 @@ else
     args="bash run.sh docker"
     export AOSP_EXTRA_ARGS="-v $(cd $(dirname $0) && pwd -P)/$(basename $0):/usr/local/bin/run.sh:ro"
     export AOSP_VOL="/home/andrea/android/codeaurora"
-    export AOSP_IMAGE="kylemanna/aosp:4.4-kitkat"
+    export AOSP_IMAGE="andreaji/android:4.4-kitkat"
 
     #
     # Try to invoke the aosp wrapper with the following priority:
