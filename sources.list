@@ -1,5 +1,5 @@
 # newer versions of the distribution.
-deb http://archive.ubuntu.com/ubuntu/ trusty main restricted
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted
 # deb-src http://archive.ubuntu.com/ubuntu/ trusty main restricted
 
 ## Major bug fix updates produced after the final release of the
